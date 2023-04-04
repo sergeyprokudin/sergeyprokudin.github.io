@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Dynamic Point Fields: Towards Efficient and Scalable Dynamic Surface Representations</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image" content="./dpf_files/figure1.png">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="512">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/sergeyprokudin/dpf">
+    <meta property="og:title" content="Dynamic Point Fields">
+    <meta property="og:description" content="Project page for Dynamic Point Fields.">
+
+        <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dynamic Point Fields">
+    <meta name="twitter:description" content="Project page for Dynamic Point Fields.">
+    <meta name="twitter:image" content="./dpf_files/figure1.png">
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+
+    <link rel="icon" type="image/png" href="./dpf_files/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="./dpf_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./dpf_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./dpf_files/codemirror.min.css">
+    <link rel="stylesheet" href="./dpf_files/app.css">
+
+    <link rel="stylesheet" href="./dpf_files/bootstrap.min(1).css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/javascript" async="" src="./dpf_files/analytics.js"></script><script async="" src="./dpf_files/js"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110862391-1');
+    </script>
+
+    <script src="./dpf_files/jquery.min.js"></script>
+    <script src="./dpf_files/bootstrap.min.js"></script>
+    <script src="./dpf_files/codemirror.min.js"></script>
+    <script src="./dpf_files/clipboard.min.js"></script>
+    
+    <script src="./dpf_files/app.js"></script>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1101.0" data-gr-ext-installed="">
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                Dynamic Point Fields  <br> 
+                <!-- Towards Efficient and Scalable Dynamic Surface Representations<br> -->
+                <small> Towards Efficient and Scalable Dynamic Surface Representations
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=xSywCzAAAAAJ&hl=en">
+                          Sergey Prokudin
+                        </a>
+                        <br>ETH Zürich
+                    </li>
+                    <li>
+                        <a href="https://qianlim.github.io/">
+                          Qianli Ma
+                        </a>
+                        <br>ETH Zürich, MPI for Intelligent Systems
+                    </li>
+                    <li>
+                        <a href="https://maximeraafat.github.io/">
+                            Maxime Raafat
+                        </a>
+                        <br>ETH Zürich
+                    </li>
+                    <li>
+                        <a href="https://scholar.google.co.uk/citations?user=pZPD0hMAAAAJ&hl=en">
+                          Julien Valentin
+                        </a>
+                        <br>Microsoft
+                    </li>
+                    <br>
+                    <li>
+                        <a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">
+                          Siyu Tang
+                        </a>
+                        <br>ETH Zürich
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://github.com/sergeyprokudin/dpf">
+                            <img src="./dpf_files/paper.png" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/sergeyprokudin/dpf">
+                            <img src="./dpf_files/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+            <video width="800" height="350" autoplay loop muted>
+            <source src="./dpf_files/teaser.mp4" type="video/mp4" />
+            </video>
+            </div>
+        </div>
+        
+         <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Overview video
+                </h3>
+                <div class="text-center">
+                        <iframe width="720" height="420" src="https://www.youtube.com/embed/i-9eAgS8HEA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+    
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    The model
+                </h3>
+                <img src="./dpf_files/figure1.png" class="img-responsive" alt="overview"><br>
+                <p class="text-justify">
+                    We propose to model dynamic surfaces with a <b>point-based model</b>, where the motion of a point over time is represented by  <a href="https://www.albertpumarola.com/research/D-NeRF/index.html"><b> an implicit deformation field</b></a>. Working directly with points (rather than <a href="https://pablopalafox.github.io/npms/">SDFs</a>) allows us to easily incorporate various well-known deformation constraints, e.g. <a href="http://graphics.stanford.edu/~niloy/research/shape_space/shape_space_sig_07.html"><b> as-isometric-as-possible </b></a>. We showcase the usefulness of this approach for creating <b>animatable avatars in complex clothing</b>.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Point-based surface representations
+                </h3>
+                 <p class="text-justify">
+                    We begin this work with revisiting point clouds as surface modelling primitives, and demonstrate how surfaces of arbitrary complexity can be efficiently modelled as sets of 3D points with associated features, such as normal directions:
+                </p>
+                <img src="./dpf_files/figure2.png" class="img-responsive" alt="overview"><br>
+                <p class="text-justify">
+                Compared to the state-of-the-art implicit models for 3D surface representation (<a href="https://nv-tlabs.github.io/nglod/">NGLOD</a>, <a href="https://nvlabs.github.io/instant-ngp/">NGP</a>), optimised point cloud model offers better reconstruction quality on all metrics, while taking zero inference time thanks to its explicit nature:
+                </p>
+                <img src="./dpf_files/figure3.png" class="img-responsive" alt="overview"><br>
+                
+                
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    As-isometric-as-possible deformations
+                </h3>
+                <p class="text-justify">
+                    Explicit 3D surface formulation allows us to use some classic constraints for learning deformations in 3D space. In this work, we use the <a href="http://graphics.stanford.edu/~niloy/research/shape_space/shape_space_sig_07.html">as-isometric-as-possible</a> regularisation to guide our learning, which enforces the preservation of distances between points in the canonical and deformed spaces:
+                </p>
+                <video width="720" height="420" autoplay loop muted>
+                <source src="./dpf_files/isometric.mp4" type="video/mp4" />
+                </video>
+                <p class="text-justify">
+                    Please pay attention to the preservation of fingers in the deformed cloud when optimising with the isometric loss.
+                </p>
+                 
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Guided deformation learning
+                </h3>
+                <p class="text-justify">
+                    In the case of dynamic humans, we can directly supervise our deformation network with the information on the <b>dynamics of the vertices</b> of the underlying minimally clothed <a href="https://smpl.is.tue.mpg.de/">human model</a> :
+                </p>
+                <img src="./dpf_files/guided.png" class="img-responsive" alt="overview"><br> 
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Single scan animation
+                </h3>
+                <p class="text-justify">
+                We showcase the advantages of our approach for animating 3D humans in challenging clothing. Using the introduced isometric and guidance losses to drive the source 3D shape allows to perform a single scan animation. Using this technique, we can repose the canonical scan to highly challenging target poses:
+                </p>
+                <video width="720" height="300" autoplay loop muted>
+                <source src="./dpf_files/single_scan.mp4" type="video/mp4" />
+                </video>
+                 
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Comparison to state-of-the-art 
+                </h3>
+                <p class="text-justify">
+                We compare our model to several state-of-the-art techniques (<a href="https://scanimate.is.tue.mpg.de/">SCANimate</a>, <a href="https://pop.is.tue.mpg.de/">POP</a>, <a href="https://qianlim.github.io/SkiRT">SkiRT</a>). Due to the reliance on linear blend skinning, the baseline methods often struggle with <b>loose garments and skirts</b>. In contrast, our method offers a new paradigm for clothing modeling, which directly optimises a smooth deformation field that preserves the continuity of cloth surfaces:
+                </p>
+                <img src="./dpf_files/dpf_vs_pop_skirt_scanimate.png" class="img-responsive" alt="overview"><br> 
+            *<i>When a collection of training scans is available, we can use the closest pose as a starting point to drive our animation for an improved realism of cloth wrinkles.</i>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Related links
+                </h3>
+                <p class="text-justify">
+                    Point-based surface representations were recently revisited in several works: <a href="https://pengsongyou.github.io/sap">Peng et al. (2021)</a>, <a href="https://igl.ethz.ch/projects/differentiable-surface-splatting/">Yifan et al. (2019)</a>. Please see the supplementary for the discussion and comparison of our point optimisation scheme with these methods.
+                </p>
+                <p class="text-justify">
+                    We model point deformations witht the <i>sinusoidal representation networks</i> introduced in <a href="https://www.vincentsitzmann.com/siren/">Sitzmann et al. (2020)</a>. Alternative architectures for deformation modeling were introduced in the context of non-rigid point cloud registration in <a href="https://arxiv.org/pdf/2205.12796.pdf">Li et al. (2022)</a>, surface modeling in <a href="https://pablopalafox.github.io/npms/">Palafox et al. (2022)</a>, and volumetric neural rendering in <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">Pumarola et al. (2020)</a>, <a href="https://nerfies.github.io/">Park et al. (2021)</a>. Please see Section 4.2 of the manuscript for the discussion of the techniques. 
+                </p>
+            </div>
+        </div>
+        
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                <textarea id="bibtex" class="form-control" readonly>
+                @article{prokudin2023dpf,
+                    title={Dynamic Point Fields},
+                    author={Prokudin Sergey and Ma Qianli and Maxime Raafat and Julien Valentin adn Siyu Tang},
+                    journal={arXiv},
+                    year={2023}
+                }</textarea>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                We sincerely thank Marko Mihajlovic, Yan Zhang, Anpei Chen and Shaofei Wang for the fruitful discussions and manuscript proofreading.
+                 <br>
+                    This work was supported by an ETH Zürich Postdoctoral Fellowship. Qianli Ma is partially funded by the Max Planck ETH Center for Learning Systems. 
+                    <br>
+                The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+                </p>
+            </div>
+        </div>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
