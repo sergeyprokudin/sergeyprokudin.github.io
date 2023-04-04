@@ -73,36 +73,42 @@
                     <li>
                         <a href="https://scholar.google.com/citations?user=xSywCzAAAAAJ&hl=en">
                           Sergey Prokudin
-                        </a>
-                        <br>ETH Zürich
+                        </a><sup>1</sup>
+<!--                        <br>ETH Zürich-->
                     </li>
                     <li>
                         <a href="https://qianlim.github.io/">
                           Qianli Ma
-                        </a>
-                        <br>ETH Zürich, MPI for Intelligent Systems
+                        </a><sup>1,2</sup>
+<!--                        <br>ETH Zürich, MPI for Intelligent Systems-->
                     </li>
                     <li>
                         <a href="https://maximeraafat.github.io/">
                             Maxime Raafat
-                        </a>
-                        <br>ETH Zürich
+                        </a><sup>1</sup>
+<!--                        <br>ETH Zürich-->
                     </li>
                     <li>
                         <a href="https://scholar.google.co.uk/citations?user=pZPD0hMAAAAJ&hl=en">
                           Julien Valentin
-                        </a>
-                        <br>Microsoft
+                        </a><sup>3</sup>
+<!--                        <br>Microsoft-->
                     </li>
-                    <br>
                     <li>
                         <a href="https://vlg.inf.ethz.ch/team/Prof-Dr-Siyu-Tang.html">
                           Siyu Tang
-                        </a>
-                        <br>ETH Zürich
+                        </a><sup>1</sup>
+<!--                        <br>ETH Zürich-->
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+            <span class="author-block"><sup>1</sup>ETH Zürich <br></span>&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>Max Planck Institute for Intelligent Systems, Tübingen <br></span>&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>Microsoft</span>
+          </div>
         </div>
 
 
@@ -129,9 +135,10 @@
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-            <video width="800" height="350" autoplay loop muted>
-            <source src="./dpf_files/teaser.mp4" type="video/mp4" />
-            </video>
+            <img src="./dpf_files/teaser.gif" class="img-responsive" alt="overview"><br>
+            <p class="text-justify">
+                    We propose to model dynamic surfaces with a <b>point-based model</b>, where the motion of a point over time is represented by  <a href="https://www.albertpumarola.com/research/D-NeRF/index.html"><b> an implicit deformation field</b></a>. Working directly with points (rather than <a href="https://pablopalafox.github.io/npms/">SDFs</a>) allows us to easily incorporate various well-known deformation constraints, e.g. <a href="http://graphics.stanford.edu/~niloy/research/shape_space/shape_space_sig_07.html"><b> as-isometric-as-possible</b></a>. We showcase the usefulness of this approach for creating <b>animatable avatars in complex clothing</b>.
+                </p>
             </div>
         </div>
         
@@ -142,9 +149,10 @@
                 </h3>
                 <div class="text-center">
                         <iframe width="720" height="420" src="https://www.youtube.com/embed/i-9eAgS8HEA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
+                </div>
                 </div>
             </div>
+ 
     
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -153,7 +161,7 @@
                 </h3>
                 <img src="./dpf_files/figure1.png" class="img-responsive" alt="overview"><br>
                 <p class="text-justify">
-                    We propose to model dynamic surfaces with a <b>point-based model</b>, where the motion of a point over time is represented by  <a href="https://www.albertpumarola.com/research/D-NeRF/index.html"><b> an implicit deformation field</b></a>. Working directly with points (rather than <a href="https://pablopalafox.github.io/npms/">SDFs</a>) allows us to easily incorporate various well-known deformation constraints, e.g. <a href="http://graphics.stanford.edu/~niloy/research/shape_space/shape_space_sig_07.html"><b> as-isometric-as-possible</b></a>. We showcase the usefulness of this approach for creating <b>animatable avatars in complex clothing</b>.
+                    Our model consists of an optimisable canonical point set (left) and a compact neural network that maps every point and its associated feature in a canonical cloud to a new location.
                 </p>
             </div>
         </div>
@@ -184,14 +192,11 @@
                 <p class="text-justify">
                     Explicit 3D surface formulation allows us to use some classic constraints for learning deformations in 3D space. In this work, we use the <a href="http://graphics.stanford.edu/~niloy/research/shape_space/shape_space_sig_07.html">as-isometric-as-possible</a> regularisation to guide our learning, which enforces the preservation of distances between points in the canonical and deformed spaces:
                 </p>
-                <video width="720" height="420" autoplay loop muted>
-                <source src="./dpf_files/isometric.mp4" type="video/mp4" />
-                </video>
-                <p class="text-justify">
-                    Please pay attention to the preservation of fingers in the deformed cloud when optimising with the isometric loss.
+                <img src="./dpf_files/isometric_loss.png" class="img-responsive" alt="overview">
+                 <p class="text-justify">
+                Please pay attention to the preservation of fingers in the deformed cloud when optimising with the isometric loss:
                 </p>
-                 
-                
+                <img src="./dpf_files/isometric.gif" class="img-responsive" alt="overview">
             </div>
         </div>
         <div class="row">
@@ -214,10 +219,7 @@
                 <p class="text-justify">
                 We showcase the advantages of our approach for animating 3D humans in challenging clothing. Using the introduced isometric and guidance losses to drive the source 3D shape allows to perform a single scan animation. Using this technique, we can repose the canonical scan to highly challenging target poses:
                 </p>
-                <video width="720" height="300" autoplay loop muted>
-                <source src="./dpf_files/single_scan.mp4" type="video/mp4" />
-                </video>
-                 
+                <img src="./dpf_files/single_scan.gif" class="img-responsive" alt="overview"><br> 
             </div>
         </div>
         
@@ -243,7 +245,7 @@
                     Point-based surface representations were recently revisited in several works: <a href="https://pengsongyou.github.io/sap">Peng et al. (2021)</a>, <a href="https://igl.ethz.ch/projects/differentiable-surface-splatting/">Yifan et al. (2019)</a>. Please see the supplementary for the discussion and comparison of our point optimisation scheme with these methods.
                 </p>
                 <p class="text-justify">
-                    We model point deformations witht the <i>sinusoidal representation networks</i> introduced in <a href="https://www.vincentsitzmann.com/siren/">Sitzmann et al. (2020)</a>. Alternative architectures for deformation modeling were introduced in the context of non-rigid point cloud registration in <a href="https://arxiv.org/pdf/2205.12796.pdf">Li et al. (2022)</a>, surface modeling in <a href="https://pablopalafox.github.io/npms/">Palafox et al. (2022)</a>, and volumetric neural rendering in <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">Pumarola et al. (2020)</a>, <a href="https://nerfies.github.io/">Park et al. (2021)</a>. Please see Section 4.2 of the manuscript for the discussion of the techniques. 
+                    We model point deformations witht the <i>sinusoidal representation networks</i> introduced in <a href="https://www.vincentsitzmann.com/siren/">Sitzmann et al. (2020)</a>. Alternative architectures for deformation modeling were introduced in the context of non-rigid point cloud registration in <a href="https://arxiv.org/pdf/2205.12796.pdf">Li et al. (2022)</a>, surface modeling in <a href="https://pablopalafox.github.io/npms/">Palafox et al. (2022)</a>, and volumetric neural rendering in <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">Pumarola et al. (2020)</a>, <a href="https://nerfies.github.io/">Park et al. (2021)</a>. Please see Section 4.2 of the manuscript for the discussion and comparison of the related techniques. 
                 </p>
             </div>
         </div>
