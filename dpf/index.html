@@ -139,7 +139,20 @@
             <p class="text-justify">
                     <b>TL;DR:</b> we propose to model dynamic surfaces with a <b>point-based model</b>, where the motion of a point over time is represented by  <a href="https://www.albertpumarola.com/research/D-NeRF/index.html"><b> an implicit deformation field</b></a>. Working directly with points (rather than <a href="https://pablopalafox.github.io/npms/">SDFs</a>) allows us to easily incorporate various well-known deformation constraints, e.g. <a href="http://graphics.stanford.edu/~niloy/research/shape_space/shape_space_sig_07.html"><b> as-isometric-as-possible</b></a>. We showcase the usefulness of this approach for creating <b>animatable avatars in complex clothing</b>:
                 </p>
-            <img src="./dpf_files/teaser.gif" class="img-responsive" alt="overview"><br>
+<!--            <img src="./dpf_files/teaser.gif" class="img-responsive" alt="overview"><br>-->
+            <div class="video-container">
+                <video width="auto" height="100" loop autoplay muted>
+                  <source src="./dpf_files/teaser_trimmed.mp4" type="video/mp4">
+                    <style>
+                        video {
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover; // use "cover" to avoid distortion
+                            position: absolute;
+                        }
+                    </style>
+            </video>
+                </div>
             </div>
             
         </div>
@@ -156,7 +169,6 @@
                 </div>
             </div>
         </div>
-        
 <!--
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -201,7 +213,17 @@
                  <p class="text-justify">
                 Please pay attention to the preservation of fingers in the deformed cloud when optimising with the isometric loss:
                 </p>
-                <img src="./dpf_files/isometric.gif" class="img-responsive" alt="overview">
+                <video width="auto" height="300" loop autoplay muted>
+                  <source src="./dpf_files/isometric.mp4" type="video/mp4">
+                    <style>
+                        video {
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover; // use "cover" to avoid distortion
+                            position: absolute;
+                        }
+                    </style>
+                </video>
             </div>
         </div>
         <div class="row">
@@ -224,10 +246,19 @@
                 <p class="text-justify">
                 We showcase the advantages of our approach for animating 3D humans in challenging clothing. Using the introduced isometric and guidance losses to drive the source 3D shape allows to perform a single scan animation. Using this technique, we can repose the canonical scan to highly challenging target poses:
                 </p>
-                <img src="./dpf_files/single_scan.gif" class="img-responsive" alt="overview">
+                <video width="auto" height="300" loop autoplay muted>
+                  <source src="./dpf_files/single_scan.mp4" type="video/mp4">
+                    <style>
+                        video {
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover; // use "cover" to avoid distortion
+                            position: absolute;
+                        }
+                    </style>
+                </video>
             </div>
         </div>
-        
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
@@ -282,7 +313,7 @@
                     Acknowledgements
                 </h3>
                 <p class="text-justify">
-                We sincerely thank Marko Mihajlovic, Yan Zhang, Anpei Chen and Shaofei Wang for the fruitful discussions and manuscript proofreading.
+                We sincerely thank Marko Mihajlovic, Yan Zhang, Anpei Chen, Dušan Svilarković and Shaofei Wang for the fruitful discussions and manuscript proofreading.
                  <br>
                     This work was supported by an ETH Zürich Postdoctoral Fellowship. Qianli Ma is partially funded by the Max Planck ETH Center for Learning Systems. 
                     <br>
