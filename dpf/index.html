@@ -4,7 +4,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     
     
-    <link rel="icon" type="image/png" href="./dpf_files/preview_icon.png"> 
+    <link rel="icon" type="image/png" href="./dpf_files/preview_icon.jpg"> 
     <title>Dynamic Point Fields: Towards Efficient and Scalable Dynamic Surface Representations</title>
 
     <meta name="description" content="">
@@ -117,7 +117,7 @@
                     <ul class="nav nav-pills nav-justified">
                         <li>
                             <a href="https://sergeyprokudin.github.io/dpf">
-                            <img src="./dpf_files/paper.png" height="60px">
+                            <img src="./dpf_files/paper.jpg" height="60px">
                                 <h4><strong>Paper</strong> <br> (coming soon)</h4>
                             </a>
                         </li>
@@ -135,14 +135,14 @@
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-            <img src="./dpf_files/figure1_cropped.png" class="img-responsive" alt="overview">
+            <img src="./dpf_files/figure1_cropped.jpeg" class="img-responsive" alt="overview">
             <p class="text-justify">
                     <b>TL;DR:</b> we propose to model dynamic surfaces with a <b>point-based model</b>, where the motion of a point over time is represented by  <a href="https://www.albertpumarola.com/research/D-NeRF/index.html"><b> an implicit deformation field</b></a>. Working directly with points (rather than <a href="https://pablopalafox.github.io/npms/">SDFs</a>) allows us to easily incorporate various well-known deformation constraints, e.g. <a href="http://graphics.stanford.edu/~niloy/research/shape_space/shape_space_sig_07.html"><b> as-isometric-as-possible</b></a>. We showcase the usefulness of this approach for creating <b>animatable avatars in complex clothing</b>:
                 </p>
 <!--            <img src="./dpf_files/teaser.gif" class="img-responsive" alt="overview"><br>-->
             <div class="video-container">
                 <video width="auto" height="100" loop autoplay muted>
-                  <source src="./dpf_files/teaser_trimmed.mp4" type="video/mp4">
+                  <source src="./dpf_files/teaser.mp4" type="video/mp4">
                     <style>
                         video {
                             height: 100%;
@@ -191,11 +191,11 @@
                  <p class="text-justify">
                     We begin this work with revisiting point clouds as surface modelling primitives, and demonstrate how surfaces of arbitrary complexity can be efficiently modelled as sets of 3D points with associated features, such as normal directions:
                 </p>
-                <img src="./dpf_files/figure2.png" class="img-responsive" alt="overview"><br>
+                <img src="./dpf_files/figure2.jpeg" class="img-responsive" alt="overview"><br>
                 <p class="text-justify">
                 Compared to the state-of-the-art implicit models for 3D surface representations (<a href="https://nv-tlabs.github.io/nglod/">NGLOD</a>, <a href="https://nvlabs.github.io/instant-ngp/">NGP</a>), optimised point cloud model offers better reconstruction quality on all metrics, while taking zero inference time thanks to its explicit nature:
                 </p>
-                <img src="./dpf_files/figure3.png" class="img-responsive" alt="overview"><br>
+                <img src="./dpf_files/figure3.jpeg" class="img-responsive" alt="overview"><br>
                 
                 
             </div>
@@ -234,7 +234,7 @@
                 <p class="text-justify">
                     In the case of dynamic humans, we can directly supervise our deformation network with the information on the <b>dynamics of the vertices</b> of the underlying minimally clothed <a href="https://smpl.is.tue.mpg.de/">human model</a> :
                 </p>
-                <img src="./dpf_files/guided.png" class="img-responsive" alt="overview"><br> 
+                <img src="./dpf_files/guided.jpeg" class="img-responsive" alt="overview"><br> 
                 
             </div>
         </div>
