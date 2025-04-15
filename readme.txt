@@ -1,1 +1,1 @@
-test
+This repository contains the source code for the website, along with related projects and resources.
