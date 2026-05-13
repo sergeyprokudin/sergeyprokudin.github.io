@@ -1,17 +1,168 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Sergey Prokudin — Senior Scientist at ETH Zürich working on computer vision, 3D/4D reconstruction, neural rendering, and spatial intelligence."
+  />
+  <title>Sergey Prokudin</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<p class="p1"><span class="s1">Nothing to display here.</span></p>
+  <div class="page">
+    <header>
+      <!-- Portrait. Swap the src to replace, or remove this block entirely to drop the image. -->
+      <img
+        class="portrait"
+        src="assets/portrait.jpg"
+        alt="Portrait of Sergey Prokudin"
+        width="480"
+        height="480"
+        loading="eager"
+        decoding="async"
+      />
+
+      <!--
+        Earlier point-cloud motif. Kept for reference; uncomment to use instead of the photo.
+
+        <div class="mark" aria-hidden="true">
+          <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="42" cy="62" r="2.5" fill="currentColor" />
+            <circle cx="94" cy="34" r="2.5" fill="currentColor" />
+            <circle cx="151" cy="57" r="2.5" fill="currentColor" />
+            <circle cx="178" cy="119" r="2.5" fill="currentColor" />
+            <circle cx="128" cy="169" r="2.5" fill="currentColor" />
+            <circle cx="61" cy="151" r="2.5" fill="currentColor" />
+            <path d="M42 62L94 34L151 57L178 119L128 169L61 151L42 62Z" stroke="currentColor" stroke-width="1" stroke-opacity="0.42" />
+            <path d="M94 34L128 169M151 57L61 151M42 62L178 119" stroke="currentColor" stroke-width="1" stroke-opacity="0.2" />
+          </svg>
+        </div>
+      -->
+
+
+      <h1>Sergey Prokudin</h1>
+      <p class="role">
+        Senior Scientist, ETH Zürich<br />
+        <span class="topics">Computer Vision · 3D/4D Reconstruction · Spatial Intelligence</span>
+      </p>
+
+      <!-- Edit external profile links here. -->
+      <nav aria-label="External links">
+        <a href="https://scholar.google.com/citations?user=xSywCzAAAAAJ&hl=en">Google Scholar</a>
+        <a href="https://github.com/sergeyprokudin">GitHub</a>
+        <a href="https://vlg.inf.ethz.ch/team/Dr-Sergey-Prokudin.html">ETH profile</a>
+        <!-- Obfuscated email; change to a direct mailto: if preferred. -->
+        <a href="mailto:sergey.prokudin@gmail.com">Email</a>
+      </nav>
+
+      <p class="hero">
+        I study how machines can build useful internal models of the physical world, from 3D geometry and 4D dynamics to structured representations for spatial reasoning.
+      </p>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <div class="section-body">
+          <p>
+            I am a Senior Scientist at ETH Zürich, working at the intersection of computer vision, computer graphics, and machine learning. My research focuses on representations of real-world 3D and 4D phenomena: reconstructing geometry, modelling motion, rendering photorealistic scenes, and extracting structure from visual observations.
+          </p>
+          <p>
+            More recently, I am interested in how these representations can support spatial intelligence: the ability of models to form, use, and update internal maps of the world for reasoning, planning, interaction, and understanding.
+          </p>
+        </div>
+      </section>
+
+      <section id="research">
+        <h2>Research</h2>
+        <!-- Four research themes. Each block: description + inline links to selected work. -->
+        <div class="research-grid">
+          <article class="research-item">
+            <h3>3D/4D scene representations</h3>
+            <p>Efficient representations for geometry, appearance, motion, and time-varying real-world structure.</p>
+            <p class="work-refs">
+              <a href="https://markomih.github.io/ResFields">ResFields</a> ·
+              <a href="https://sergeyprokudin.github.io/dpf/">Dynamic Point Fields</a> ·
+              <a href="https://github.com/sergeyprokudin/bps">Basis Point Sets</a>
+            </p>
+          </article>
+
+          <article class="research-item">
+            <h3>Neural reconstruction and rendering</h3>
+            <p>Methods for reconstructing and rendering photorealistic static and dynamic scenes from sparse or imperfect observations.</p>
+            <p class="work-refs">
+              <a href="https://chenyutongthu.github.io/research/ggpt">GGPT</a> ·
+              <a href="https://ethz-vlg.github.io/mvtracker">MVTracker</a> ·
+              <a href="https://sergeyprokudin.github.io/splatformer/">SplatFormer</a> ·
+              <a href="https://vlg.inf.ethz.ch/publications/SplatFields-Neural-Gaussian-Splats-for.html">SplatFields</a>
+            </p>
+          </article>
+
+          <article class="research-item">
+            <h3>Digital twins</h3>
+            <p>Faithful digital replicas of humans, hands, and surgical scenes — controllable, photorealistic, and grounded in real observations.</p>
+            <p class="work-refs">
+              <a href="https://panteroni.github.io/3dsurgerytraining/">SurgiScope</a> ·
+              <a href="https://jonashein.github.io/surgerydigitization">Surgical Digital Twins</a> ·
+              <a href="https://xiyichen.github.io/morphablediffusion/">Morphable Diffusion</a> ·
+              <a href="https://korrawe.github.io/harp-project/">HARP</a> ·
+              <a href="https://github.com/sergeyprokudin/smplpix">SMPLpix</a>
+            </p>
+          </article>
+
+          <article class="research-item">
+            <h3>Spatial intelligence</h3>
+            <p>Understanding what kinds of internal maps vision models need for reasoning about space, objects, motion, navigation, interaction, and change.</p>
+          </article>
+        </div>
+
+        <p class="full-list">
+          <a href="https://scholar.google.com/citations?user=xSywCzAAAAAJ&hl=en">Full publication list on Google Scholar →</a>
+        </p>
+      </section>
+
+      <section id="direction">
+        <h2>Current direction</h2>
+        <div class="section-body">
+          <p>
+            Spatial intelligence sits between geometric reconstruction and higher-level reasoning. I am interested in the kind of internal map a vision system needs to answer what is where, what changes, what can move, and what supports planning or interaction.
+          </p>
+        </div>
+      </section>
+
+      <section id="teaching">
+        <h2>Teaching and supervision</h2>
+        <div class="section-body">
+          <!-- Update course links each semester as the URLs change. -->
+          <p>
+            At ETH Zürich, I co-teach
+            <a href="https://cvg.ethz.ch/lectures/Computer-Vision/">Computer Vision</a>
+            (with Marc Pollefeys and Siyu Tang) and
+            <a href="https://vlg.inf.ethz.ch/teaching/Digital-Humans-FS-26.html">Digital Humans</a>
+            (with Siyu Tang).
+          </p>
+          <p>
+            I supervise student projects in computer vision, 3D reconstruction, neural rendering, and spatial intelligence, with particular interest in work that connects rigorous geometric modelling with modern foundation models.
+          </p>
+          <p>
+            If you are a student interested in working on these topics, please <a href="mailto:sergey.prokudin@gmail.com">reach out</a>. The most useful messages are short and specific: what you want to work on, why it interests you, and what you have already tried.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© Sergey Prokudin</div>
+      <!-- Footer mirror of header nav. Keep links in sync. -->
+      <div class="footer-links">
+        <a href="https://scholar.google.com/citations?user=xSywCzAAAAAJ&hl=en">Google Scholar</a>
+        <a href="https://github.com/sergeyprokudin">GitHub</a>
+        <a href="https://vlg.inf.ethz.ch/team/Dr-Sergey-Prokudin.html">ETH</a>
+        <a href="mailto:sergey.prokudin@gmail.com">Email</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

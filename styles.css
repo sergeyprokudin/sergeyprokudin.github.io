@@ -1,0 +1,268 @@
+/* ------------------------------------------------------------------
+   Sergey Prokudin — personal page
+   Edit colours, spacing, and type sizes via the CSS variables below.
+------------------------------------------------------------------ */
+
+:root {
+  /* Palette — neutral cool greys on near-black text. */
+  --bg: #f6f7f8;
+  --text: #171717;
+  --muted: #6b6e72;
+  --faint: #dcdee0;
+  --link: #171717;
+  --link-hover: #3d4651;
+
+  /* Layout */
+  --max-width: 840px;
+
+  /* Typography */
+  --body-size: 17px;
+  --line: 1.68;
+
+  /* Spacing scale */
+  --space-xs: 0.45rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.4rem;
+  --space-lg: 2.4rem;
+  --space-xl: 4.2rem;
+
+  /* Portrait sizing — referenced by .portrait and by header padding. */
+  --portrait-size: 192px;
+  --portrait-gap: 1.75rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  /* Helvetica Neue (regular) as the body face. */
+  font-family: "Helvetica Neue", "HelveticaNeue", Helvetica,
+    "Arial Nova", Arial, sans-serif;
+  font-weight: 400;
+  font-size: var(--body-size);
+  line-height: var(--line);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Links: understated underline; warmer accent on hover. */
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(23, 23, 23, 0.28);
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover);
+  border-color: rgba(61, 70, 81, 0.5);
+}
+
+a:focus-visible {
+  outline: 2px solid rgba(61, 70, 81, 0.5);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ------------------------------------------------------------------
+   Page shell
+------------------------------------------------------------------ */
+
+.page {
+  width: min(var(--max-width), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 72px 0 48px;
+}
+
+/* ------------------------------------------------------------------
+   Header
+------------------------------------------------------------------ */
+
+header {
+  position: relative;
+  padding-bottom: var(--space-xl);
+  /* Reserve space on the right so h1 and nav don't run under the portrait. */
+  padding-right: calc(var(--portrait-size) + var(--portrait-gap));
+}
+
+/* Portrait in the top-right of the header.
+   Square crop with slight corner rounding; resize via --portrait-size in :root. */
+.portrait {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  width: var(--portrait-size);
+  height: var(--portrait-size);
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  /* Monochrome to keep the page palette unified. */
+  filter: grayscale(1) contrast(1.02);
+}
+
+h1, h2, h3, p { margin: 0; }
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.1rem, 5.6vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.045em;
+  max-width: 760px;
+}
+
+.role {
+  margin-top: var(--space-md);
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.topics { color: var(--text); }
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin-top: var(--space-md);
+  font-size: 0.95rem;
+}
+
+.hero {
+  margin-top: var(--space-xl);
+  max-width: 780px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.2rem, 2.4vw, 1.75rem);
+  line-height: 1.36;
+  letter-spacing: -0.02em;
+}
+
+/* ------------------------------------------------------------------
+   Sections
+   Two columns on desktop: label on the left, content on the right.
+   Collapses to a single column on mobile.
+------------------------------------------------------------------ */
+
+main { border-top: 1px solid var(--faint); }
+
+section {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--faint);
+}
+
+h2 {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.section-body > p + p { margin-top: var(--space-md); }
+
+/* ------------------------------------------------------------------
+   Research grid (4 themes)
+------------------------------------------------------------------ */
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.research-item h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: var(--space-xs);
+}
+
+.research-item p {
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.58;
+}
+
+/* Inline list of selected works under each research theme. */
+.work-refs {
+  margin-top: var(--space-sm);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.work-refs a {
+  border-bottom-color: rgba(23, 23, 23, 0.2);
+}
+
+/* "Full publication list" pointer below the research grid. */
+.full-list {
+  grid-column: 2;
+  margin-top: var(--space-lg);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------------
+   Footer
+------------------------------------------------------------------ */
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-top: var(--space-lg);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+}
+
+/* ------------------------------------------------------------------
+   Responsive
+------------------------------------------------------------------ */
+
+@media (max-width: 760px) {
+  :root {
+    --body-size: 16px;
+    --space-xl: 3.2rem;
+    --portrait-size: 104px;
+    --portrait-gap: 1.1rem;
+  }
+
+  .page {
+    width: min(100% - 28px, var(--max-width));
+    padding-top: 48px;
+  }
+
+  .portrait { top: 0; }
+
+  section {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .research-grid { grid-template-columns: 1fr; }
+
+  .full-list { grid-column: 1; }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  a { transition: none; }
+}
