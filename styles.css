@@ -192,16 +192,27 @@ h2 {
   line-height: 1.58;
 }
 
-/* Inline list of selected works under each research theme. */
+/* Compact list of selected works under each research theme. */
 .work-refs {
   margin-top: var(--space-sm);
+  padding: 0;
+  list-style: none;
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--muted);
 }
 
+.work-refs li + li {
+  margin-top: 0.18rem;
+}
+
 .work-refs a {
   border-bottom-color: rgba(23, 23, 23, 0.2);
+}
+
+.work-refs span {
+  color: var(--muted);
+  white-space: nowrap;
 }
 
 /* "Full publication list" pointer below the research grid. */
