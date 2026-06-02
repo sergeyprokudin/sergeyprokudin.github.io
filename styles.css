@@ -179,10 +179,16 @@ h2 {
   gap: var(--space-lg);
 }
 
+.research-item {
+  display: flex;
+  flex-direction: column;
+}
+
 .research-item h3 {
   font-size: 1.02rem;
   font-weight: 600;
   line-height: 1.35;
+  margin-top: var(--space-sm);
   margin-bottom: var(--space-xs);
 }
 
@@ -190,6 +196,22 @@ h2 {
   color: var(--muted);
   font-size: 0.98rem;
   line-height: 1.58;
+}
+
+.research-media {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  background: #eceeef;
+  filter: grayscale(0.82) contrast(1.02);
+  transition: filter 240ms ease;
+}
+
+.research-item:hover .research-media,
+.research-item:focus-within .research-media {
+  filter: grayscale(0) contrast(1);
 }
 
 /* Compact list of selected works under each research theme. */
@@ -272,8 +294,16 @@ footer {
   .full-list { grid-column: 1; }
 }
 
+/* Touch devices do not have reliable hover; keep visuals in color there. */
+@media (hover: none) {
+  .research-media {
+    filter: grayscale(0) contrast(1);
+  }
+}
+
 /* Respect users who prefer reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   a { transition: none; }
+  .research-media { transition: none; }
 }

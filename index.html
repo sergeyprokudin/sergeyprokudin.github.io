@@ -78,6 +78,19 @@
         <!-- Four research themes. Each block: description + compact links to selected work. -->
         <div class="research-grid">
           <article class="research-item">
+            <video
+              class="research-media research-video"
+              width="1544"
+              height="1064"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/representation_3d_poster.jpg"
+              aria-label="Animated 3D scene representation result"
+            >
+              <source src="assets/representation_3d.mp4" type="video/mp4" />
+            </video>
             <h3>3D/4D scene representations</h3>
             <p>Efficient representations for geometry, appearance, motion, and time-varying real-world structure.</p>
             <ul class="work-refs">
@@ -88,6 +101,19 @@
           </article>
 
           <article class="research-item">
+            <video
+              class="research-media research-video"
+              width="1544"
+              height="1080"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/reconstruction4d_poster.jpg"
+              aria-label="Animated 4D reconstruction and rendering result"
+            >
+              <source src="assets/reconstruction4d.mp4" type="video/mp4" />
+            </video>
             <h3>Neural reconstruction and rendering</h3>
             <p>Methods for reconstructing and rendering photorealistic static and dynamic scenes from sparse or imperfect observations.</p>
             <ul class="work-refs">
@@ -99,6 +125,19 @@
           </article>
 
           <article class="research-item">
+            <video
+              class="research-media research-video"
+              width="1542"
+              height="1078"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/digital_humans_poster.jpg"
+              aria-label="Animated human-to-avatar correspondence example"
+            >
+              <source src="assets/digital_humans.mp4" type="video/mp4" />
+            </video>
             <h3>Digital twins</h3>
             <p>Digital representations of humans, biological systems, and surgical scenes: controllable, temporally coherent, and grounded in real observations.</p>
             <ul class="work-refs">
@@ -111,6 +150,15 @@
           </article>
 
           <article class="research-item">
+            <img
+              class="research-media"
+              src="assets/spatial_intelligence.png"
+              alt="Spatial scene understanding with object-centric map"
+              width="1542"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
             <h3>Spatial intelligence</h3>
             <p>Understanding what kinds of internal maps vision models need for reasoning about space, objects, motion, navigation, interaction, and change.</p>
           </article>
@@ -153,5 +201,53 @@
       </div>
     </footer>
   </div>
+  <script>
+    (() => {
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const supportsHover = window.matchMedia("(hover: hover)").matches;
+      const interactiveVideos = document.querySelectorAll(".research-video");
+
+      if (!interactiveVideos.length) {
+        return;
+      }
+
+      interactiveVideos.forEach((video) => {
+        const playVideo = () => {
+          if (prefersReducedMotion) {
+            return;
+          }
+          video.play().catch(() => {});
+        };
+
+        const stopVideo = () => {
+          video.pause();
+          video.currentTime = 0;
+          // Reload to restore poster instead of showing frame 0.
+          video.load();
+        };
+
+        // Keep cards static on initial page load.
+        stopVideo();
+
+        if (supportsHover) {
+          video.addEventListener("mouseenter", playVideo);
+          video.addEventListener("mouseleave", stopVideo);
+          video.addEventListener("focus", playVideo);
+          video.addEventListener("blur", stopVideo);
+        } else {
+          video.addEventListener("click", () => {
+            if (prefersReducedMotion) {
+              return;
+            }
+            if (video.paused) {
+              video.play().catch(() => {});
+            } else {
+              stopVideo();
+            }
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
