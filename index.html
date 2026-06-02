@@ -16,7 +16,7 @@
       <!-- Portrait. Swap the src to replace, or remove this block entirely to drop the image. -->
       <img
         class="portrait"
-        src="assets/portrait.jpg"
+        src="assets/portrait.jpg?v=20260602"
         alt="Portrait of Sergey Prokudin"
         width="480"
         height="480"
@@ -65,7 +65,7 @@
         <h2>About</h2>
         <div class="section-body">
           <p>
-            I am a Senior Scientist at ETH Zürich, working at the intersection of computer vision, computer graphics, and machine learning. My research focuses on representations of real-world 3D and 4D phenomena: reconstructing geometry, modelling motion, rendering photorealistic scenes, and extracting structure from visual observations.
+            I am a senior scientist at ETH Zürich, working at the intersection of computer vision, computer graphics, and machine learning. My research focuses on representations of real-world 3D and 4D phenomena: reconstructing geometry, modelling motion, rendering photorealistic scenes, and extracting structure from visual observations.
           </p>
           <p>
             I am increasingly focused on spatial intelligence: the bridge between geometric reconstruction and higher-level reasoning. My goal is to develop models that form and update internal maps to answer fundamental questions: what is where, what changes, and how can a machine interact with its environment?
@@ -86,17 +86,18 @@
               loop
               playsinline
               preload="metadata"
-              poster="assets/representation_3d_poster.jpg"
+              poster="assets/representation_3d_poster.jpg?v=20260602"
               aria-label="Animated 3D scene representation result"
             >
-              <source src="assets/representation_3d.mp4" type="video/mp4" />
+              <source src="assets/representation_3d.mp4?v=20260602" type="video/mp4" />
+              Your browser does not support the video tag.
             </video>
             <h3>3D/4D scene representations</h3>
             <p>Efficient representations for geometry, appearance, motion, and time-varying real-world structure.</p>
             <ul class="work-refs">
               <li><a href="https://markomih.github.io/ResFields/">ResFields</a> <span>ICLR 2024</span></li>
               <li><a href="https://sergeyprokudin.github.io/dpf/">Dynamic Point Fields</a> <span>ICCV 2023</span></li>
-              <li><a href="https://arxiv.org/abs/1908.09186">Basis Point Sets</a> <span>ICCV 2019</span></li>
+              <li><a href="https://github.com/sergeyprokudin/bps">Basis Point Sets</a> <span>ICCV 2019</span></li>
             </ul>
           </article>
 
@@ -109,17 +110,18 @@
               loop
               playsinline
               preload="metadata"
-              poster="assets/reconstruction4d_poster.jpg"
+              poster="assets/reconstruction4d_poster.jpg?v=20260602"
               aria-label="Animated 4D reconstruction and rendering result"
             >
-              <source src="assets/reconstruction4d.mp4" type="video/mp4" />
+              <source src="assets/reconstruction4d.mp4?v=20260602" type="video/mp4" />
+              Your browser does not support the video tag.
             </video>
             <h3>Neural reconstruction and rendering</h3>
             <p>Methods for reconstructing and rendering photorealistic static and dynamic scenes from sparse or imperfect observations.</p>
             <ul class="work-refs">
               <li><a href="https://chenyutongthu.github.io/research/ggpt/">Geometry-Grounded Point Transformer</a> <span>CVPR 2026</span></li>
               <li><a href="https://ethz-vlg.github.io/mvtracker/">Multi-view 3D Point Tracking</a> <span>ICCV 2025</span></li>
-              <li><a href="https://arxiv.org/abs/2411.06390">SplatFormer</a> <span>ICLR 2025</span></li>
+              <li><a href="https://sergeyprokudin.github.io/splatformer/">SplatFormer</a> <span>ICLR 2025</span></li>
               <li><a href="https://markomih.github.io/SplatFields/">SplatFields</a> <span>ECCV 2024</span></li>
             </ul>
           </article>
@@ -133,10 +135,11 @@
               loop
               playsinline
               preload="metadata"
-              poster="assets/digital_humans_poster.jpg"
+              poster="assets/digital_humans_poster.jpg?v=20260602"
               aria-label="Animated human-to-avatar correspondence example"
             >
-              <source src="assets/digital_humans.mp4" type="video/mp4" />
+              <source src="assets/digital_humans.mp4?v=20260602" type="video/mp4" />
+              Your browser does not support the video tag.
             </video>
             <h3>Digital twins</h3>
             <p>Digital representations of humans, biological systems, and surgical scenes: controllable, temporally coherent, and grounded in real observations.</p>
@@ -152,7 +155,7 @@
           <article class="research-item">
             <img
               class="research-media"
-              src="assets/spatial_intelligence.png"
+              src="assets/spatial_intelligence.png?v=20260602"
               alt="Spatial scene understanding with object-centric map"
               width="1542"
               height="1080"
@@ -235,16 +238,24 @@
           video.addEventListener("focus", playVideo);
           video.addEventListener("blur", stopVideo);
         } else {
-          video.addEventListener("click", () => {
-            if (prefersReducedMotion) {
-              return;
-            }
-            if (video.paused) {
-              video.play().catch(() => {});
-            } else {
-              stopVideo();
-            }
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (prefersReducedMotion) {
+                stopVideo();
+                return;
+              }
+
+              if (entry.isIntersecting) {
+                playVideo();
+              } else {
+                stopVideo();
+              }
+            });
+          }, {
+            threshold: 0.6
           });
+
+          observer.observe(video);
         }
       });
     })();
