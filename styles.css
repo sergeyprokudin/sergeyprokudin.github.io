@@ -101,8 +101,13 @@ header {
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  /* Monochrome to keep the page palette unified. */
+  /* Monochrome by default; reveals color on hover (same motif as the research thumbnails). */
   filter: grayscale(1) contrast(1.02);
+  transition: filter 240ms ease;
+}
+
+.portrait:hover {
+  filter: grayscale(0) contrast(1);
 }
 
 h1, h2, h3, p { margin: 0; }
@@ -326,4 +331,5 @@ footer {
   html { scroll-behavior: auto; }
   a { transition: none; }
   .research-media { transition: none; }
+  .portrait { transition: none; }
 }
